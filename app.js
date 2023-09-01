@@ -7,7 +7,6 @@ root.render(heading);
 
 
 //nested structure
-
 const heading1=React.createElement("div",{id:"parent"},
     React.createElement("div",{id:"child"},
     [React.createElement("h1",{},"Hello from h1 tag"),
