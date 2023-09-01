@@ -1,0 +1,27 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "React app",
+  "main": "app.js",
+  "scripts": {
+    "test": "jtest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ershivanikhandelwal/React.git"
+  },
+  "keywords": [
+    "react",
+    "react",
+    "leaning"
+  ],
+  "author": "SHivani Khandelwal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ershivanikhandelwal/React/issues"
+  },
+  "homepage": "https://github.com/ershivanikhandelwal/React#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  }
+}
