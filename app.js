@@ -1,13 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-//nested structure
-const heading1=React.createElement("div",{id:"parent"},
-    React.createElement("div",{id:"child"},
-    [React.createElement("h1",{},"Hello from h1 tag "),
-    React.createElement("h2",{},"Hello from h2 tag")])); 
-//it creates an React object not html tag
-//{id:"heading"} is attribute of h1 tag.
-const root1= ReactDOM.createRoot(document.getElementById("root")); 
-root1.render(heading1); 
-// this render method convert react object into h1 tag.
+//JSX is html like or xml like syntax
+const jsxHeading=<h1 id="heading">Hello from React</h1>
+const root=ReactDOM.createRoot(document.getElementById("root"));
+root.render(jsxHeading); //React Element
+
+//React functional component
+const title=<h1>Hello!!</h1>
+const HeadingComponent1=()=> <h1>Hello from functional component2</h1>
+//or
+//component composition
+const HeadingComponent=()=>(
+    <div id="container">
+        {title}
+        <HeadingComponent1/>
+        <HeadingComponent1></HeadingComponent1>
+        {HeadingComponent1()}    
+        <h1>Hello from functional component1</h1>
+    </div>
+)
+
+
+root.render(<HeadingComponent/>)  //React functional component we have to put in </> so that babel can understand it.

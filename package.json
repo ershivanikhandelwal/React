@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "React app",
   "scripts": {
-    "test": "jtest"
+    "test": "jtest",
+    "start":"parcel index.html",
+    "build":"parcel build index.html"
   },
   "repository": {
     "type": "git",
