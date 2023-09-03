@@ -1,3 +1,73 @@
-#heading{
-    color:red
+.header
+{
+    display:flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+.logo_img
+{
+    width:100px;
+}
+
+.nav-item >ul{
+    padding-top: 20px;
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-item >ul >li{
+    padding-right: 30px;
+    font-size: 24px;
+}
+
+.body-container
+{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 1px solid black;
+}
+
+.body-content{
+    margin: 10px;
+}
+
+.search
+{
+    width: 100%;
+    padding-left: 10px;
+}
+
+.search-input{
+    width:30%
+}
+
+.res-card{
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card{
+    width:200px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: 10px;
+}
+
+.res-card :hover{
+    cursor: pointer;
+}
+
+.food-img{
+    width:100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 150px;
+    min-height: 150px;
+}
+
+h4{
+    margin: 5px;
 }

@@ -4,8 +4,8 @@
   "description": "React app",
   "scripts": {
     "test": "jtest",
-    "start":"parcel index.html",
-    "build":"parcel build index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "browserslist":[
+  "browserslist": [
     "last 2 chrome version"
   ]
 }
