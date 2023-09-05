@@ -1,11 +1,29 @@
 import DishCardComponent from "./DishCardComponent"
 import resObj from "../utils/restaurent"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import ShimmerCard from "./ShimmerCard"
 
 const BodyComponent=()=>{
-    let [listOfRestuarent,setListOfRestaurent] = useState(resObj);
-    return(
-    <div className="body-container">
+    let [listOfRestuarent,setListOfRestaurent] = useState([]);
+    
+    useEffect(()=>{
+        fetchData();
+    },[]);
+
+    const fetchData=async ()=>{
+        let data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.9545943&lng=75.7455944&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+
+        const jsonData= await data.json();
+        const newData=jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.info;
+        setListOfRestaurent(resObj)
+    }
+
+    //conditional rendering
+    // if(listOfRestuarent.length===0){
+        //  return (<ShimmerCard/>)
+    // }
+
+    return listOfRestuarent.length===0?(<ShimmerCard/>):(<div className="body-container">
         <div className="body-content">
             <div className="filter-bar d-flex">
                 <div className="search d-flex">
