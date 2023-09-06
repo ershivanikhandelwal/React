@@ -5,6 +5,8 @@ import ShimmerCard from "./ShimmerCard"
 
 const BodyComponent=()=>{
     let [listOfRestuarent,setListOfRestaurent] = useState([]);
+    let [FilterlistOfRestuarent,setFilterListOfRestaurent] = useState([]);
+    const [searchText,setSearchText]=useState("");
     
     useEffect(()=>{
         fetchData();
@@ -16,6 +18,7 @@ const BodyComponent=()=>{
         const jsonData= await data.json();
         const newData=jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.info;
         setListOfRestaurent(resObj)
+        setFilterListOfRestaurent(resObj)
     }
 
     //conditional rendering
@@ -27,21 +30,26 @@ const BodyComponent=()=>{
         <div className="body-content">
             <div className="filter-bar d-flex">
                 <div className="search d-flex">
-                    <input type="email" className="search-input form-control w-50" placeholder="Search your dish"></input>
-                    <button className="search-btn btn btn-primary w-20">Search</button>
+                    <input type="email" className="search-input form-control w-50" value={searchText} onChange={(e)=>{
+                        setSearchText(e.target.value);
+                    }} placeholder="Search your dish"></input>
+                    <button className="search-btn btn btn-primary w-20" onClick={()=>{
+                        let filteredRest=listOfRestuarent.filter(res=>res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+                        setFilterListOfRestaurent(filteredRest);
+                    }}>Search</button>
                 </div>
                 <div className="top-rated pull-left d-flex">
                     <button className="filter-btn btn btn-success" onClick={()=>{
-                        setListOfRestaurent(resObj);
+                        setFilterListOfRestaurent(listOfRestuarent);
                     }}>Show All Restaurent</button>
                     <button className="filter-btn btn btn-success" onClick={()=>{
                         let filterRest= listOfRestuarent.filter(rest=>rest.info.avgRating>4);
-                        setListOfRestaurent(filterRest);
+                        setFilterListOfRestaurent(filterRest);
                     }}>Top rated Restaurent</button>
                 </div>                
             </div>
             <div className="res-card">
-                {listOfRestuarent.map(restaurent=><DishCardComponent key={restaurent.info.id} restData={restaurent}/>)}
+                {FilterlistOfRestuarent.map(restaurent=><DishCardComponent key={restaurent.info.id} restData={restaurent}/>)}
             </div>
         </div>        
     </div>

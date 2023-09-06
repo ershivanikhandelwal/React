@@ -19,7 +19,7 @@ const ShimmerCard= ()=>{
                 </div>
             
                 <div className="shimmer-container d-flex">
-                    {arr.map(card=> <div className="shimmer-card">
+                    {arr.map((card,index)=> <div key={index} className="shimmer-card">
                         <div className="shimmer-small-card"></div>
                     </div>)}           
                 </div>
